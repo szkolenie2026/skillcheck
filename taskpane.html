@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkillCheck</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">SkillCheck</div>
+    <div id="progress" class="muted"></div>
+  </header>
+
+  <section id="screen-start">
+    <h1>Test umiejętności Excela</h1>
+    <p>Test składa się z zadań wykonywanych bezpośrednio w tym skoroszycie. Każde zadanie pojawi się na osobnym arkuszu. Po zakończeniu pracy nad zadaniem kliknij <b>Gotowe</b>.</p>
+    <label for="session">Kod sesji</label>
+    <input id="session" placeholder="np. DEMO-001" />
+    <label class="check"><input type="checkbox" id="examiner" checked /> Tryb egzaminatora (pokazuj ocenę)</label>
+    <button id="btn-start" class="primary">Rozpocznij</button>
+    <p id="start-error" class="error"></p>
+  </section>
+
+  <section id="screen-task" hidden>
+    <div class="timer-row"><span id="task-title"></span><span id="timer">00:00</span></div>
+    <p id="task-instruction"></p>
+    <p class="muted">Arkusz: <b id="task-sheet"></b> · Pole odpowiedzi: <b id="task-answer"></b></p>
+    <button id="btn-done" class="primary">Gotowe</button>
+    <p id="task-status" class="muted"></p>
+  </section>
+
+  <section id="screen-result" hidden>
+    <h2>Wynik zadania</h2>
+    <div id="result-box"></div>
+    <div id="decision-box"></div>
+    <button id="btn-next" class="primary">Dalej</button>
+  </section>
+
+  <section id="screen-summary" hidden>
+    <h2>Podsumowanie</h2>
+    <div id="summary-box"></div>
+    <button id="btn-copy">Kopiuj raport JSON</button>
+    <pre id="report-json"></pre>
+  </section>
+
+  <script src="tasks.js"></script>
+  <script src="engine-excel.js"></script>
+  <script src="ai.js"></script>
+  <script src="taskpane.js"></script>
+</body>
+</html>
